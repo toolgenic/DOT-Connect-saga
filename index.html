@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download Dot Connect Saga, a free, low MB puzzle game for Android! Connect colorful dots in addictive, AI-generated puzzles with daily challenges and global leaderboards. Perfect for casual gamers, this lightweight game runs smoothly on any device. Join the fun and share your scores! #DotConnectSaga">
+    <meta name="description" content="Play Dot Connect Saga, a free, low MB puzzle game! Connect colorful dots on a grid without overlapping lines. Enjoy challenging levels, track your score, and share your progress! #DotConnectSaga">
     <meta name="keywords" content="low MB puzzle game, hyper-casual game 2026, Dot Connect Saga, free Android puzzle, connect dots game, mobile puzzle game, casual puzzle game, AI puzzle game, daily challenge puzzle, lightweight Android game, best low MB puzzle game 2026, free dot connect game Android, hyper-casual puzzle game India, addictive connect dots game, AI-generated puzzle game, casual game for low-end devices, Dot Connect Saga download">
-    <title>Dot Connect Saga - Fun Puzzle Game</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Analytics (lightweight, free) -->
+    <title>Dot Connect Saga - Play Now!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -15,60 +15,230 @@
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
     </script>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45aaf2);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        /* Game Section */
+        #game {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #f0f4f8;
+            border-radius: 15px;
+            margin: 1rem auto;
+            max-width: 500px;
+        }
+
+        #gameCanvas {
+            max-width: 100%;
+            height: auto;
+            border: 3px solid #4ecdc4;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-info {
+            font-size: 1.1rem;
+            color: #444;
+            margin: 1rem 0;
+        }
+
+        .game-instructions {
+            font-size: 1rem;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: #4ecdc4;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            margin: 0.5rem;
+        }
+
+        .btn:hover {
+            background: #3da8a0;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #e55a5a;
+        }
+
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+            max-width: 90%;
+            animation: popUp 0.5s ease-in-out;
+        }
+
+        .popup p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .popup form {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .popup input {
+            padding: 0.8rem;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .close-btn {
+            background: #ff6b6b;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            color: white;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .close-btn:hover {
+            background: #e55a5a;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #2d3436;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popUp {
+            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .game-info {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.3rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header>
         <h1>Dot Connect Saga</h1>
         <p class="tagline">Connect the Dots, Solve the Puzzle!</p>
-        <a href="#" class="download-btn">Download on Google Play</a>
     </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <img src="hero-image.webp" alt="Dot Connect Saga Gameplay" class="hero-image">
-        <p class="game-desc">Dot Connect Saga is a fun, low MB puzzle game for Android! Connect colored dots on a grid without overlapping lines. Enjoy AI-generated puzzles, daily challenges, and global leaderboards. Perfect for casual gamers, it’s lightweight and runs smoothly on any device. Download now and start puzzling!</p>
-        <div class="cta-buttons">
-            <a href="#about" class="btn">Learn More</a>
-            <a href="https://x.com/share?text=Check%20out%20Dot%20Connect%20Saga!%20%23DotConnectSaga" target="_blank" class="btn">Share on X</a>
+    <!-- Game Section -->
+    <section id="game">
+        <canvas id="gameCanvas"></canvas>
+        <p class="game-info">Level: <span id="level">1</span> | Score: <span id="score">0</span></p>
+        <p class="game-instructions">Click and drag to connect matching colored dots without overlapping lines!</p>
+        <div>
+            <a href="https://x.com/share?text=I%20scored%20in%20Dot%20Connect%20Saga!%20Play%20now!%20%23DotConnectSaga" target="_blank" class="btn" id="shareBtn">Share on X</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About the Game</h2>
-        <p>Dot Connect Saga offers endless fun with these features:</p>
-        <ul>
-            <li>AI-generated puzzles for unique challenges every time.</li>
-            <li>Daily challenges with global leaderboards.</li>
-            <li>Low MB size (under 30 MB) for budget Android devices.</li>
-            <li>Colorful themes (pastel, neon, nature) to customize your experience.</li>
-        </ul>
-        <div class="screenshots">
-            <img src="screenshot1.webp" alt="Gameplay Screenshot 1" class="screenshot">
-            <img src="screenshot2.webp" alt="Gameplay Screenshot 2" class="screenshot">
-        </div>
-        <video controls src="gameplay-video.mp4" class="gameplay-video" alt="Gameplay Video"></video>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit" class="btn">Send</button>
-        </form>
-        <div class="social-links">
-            <a href="https://x.com" target="_blank">X</a>
-            <a href="https://instagram.com" target="_blank">Instagram</a>
-            <a href="mailto:support@dotconnectsaga.com">support@dotconnectsaga.com</a>
-        </div>
-    </section>
+    <!-- Social Links -->
+    <div class="social-links">
+        <a href="https://x.com" target="_blank">X</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="mailto:support@dotconnectsaga.com">support@dotconnectsaga.com</a>
+    </div>
 
     <!-- Mailchimp Popup -->
     <div id="popup" class="popup">
@@ -85,7 +255,222 @@
         <p>© 2025 Dot Connect Saga. All rights reserved.</p>
     </footer>
 
+    <!-- Phaser and Game Logic -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <script>
+        // Game Configuration
+        const config = {
+            type: Phaser.AUTO,
+            parent: 'game',
+            width: 400,
+            height: 400,
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            },
+            canvas: document.getElementById('gameCanvas')
+        };
+
+        const game = new Phaser.Game(config);
+
+        let dots = [];
+        let lines = [];
+        let currentLine = null;
+        let selectedDot = null;
+        let graphics;
+        let level = 1;
+        let score = 0;
+        let totalLevels = 3;
+        let pairsToConnect = 3; // 3 pairs of dots per level
+
+        const levelText = document.getElementById('level');
+        const scoreText = document.getElementById('score');
+        const shareBtn = document.getElementById('shareBtn');
+
+        function preload() {
+            // No external assets needed
+        }
+
+        function create() {
+            graphics = this.add.graphics();
+            setupLevel();
+
+            // Handle mouse/touch input
+            this.input.on('pointermove', pointer => {
+                if (selectedDot) {
+                    updateLine(pointer);
+                }
+            });
+        }
+
+        function setupLevel() {
+            dots = [];
+            lines = [];
+            currentLine = null;
+            selectedDot = null;
+            graphics.clear();
+
+            // Draw 4x4 grid
+            const gridSize = 4;
+            const cellSize = 100;
+            const offsetX = 0;
+            const offsetY = 0;
+
+            graphics.lineStyle(2, 0xcccccc);
+            for (let i = 0; i <= gridSize; i++) {
+                graphics.moveTo(offsetX + i * cellSize, offsetY);
+                graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
+                graphics.moveTo(offsetX, offsetY + i * cellSize);
+                graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
+            }
+            graphics.strokePath();
+
+            // Generate dot positions (3 pairs, different colors)
+            const colors = [0xff0000, 0x0000ff, 0x00ff00]; // Red, Blue, Green
+            let positions = [];
+            while (positions.length < pairsToConnect * 2) {
+                let x = offsetX + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
+                let y = offsetY + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
+                if (!positions.some(pos => pos.x === x && pos.y === y)) {
+                    positions.push({ x, y });
+                }
+            }
+
+            for (let i = 0; i < pairsToConnect; i++) {
+                let color = colors[i];
+                let pos1 = positions[i * 2];
+                let pos2 = positions[i * 2 + 1];
+                dots.push({ x: pos1.x, y: pos1.y, color, id: i + 1 });
+                dots.push({ x: pos2.x, y: pos2.y, color, id: i + 1 });
+            }
+
+            // Draw dots
+            dots.forEach(dot => {
+                graphics.fillStyle(dot.color, 1);
+                graphics.fillCircle(dot.x, dot.y, 15);
+                dot.sprite = this.add.circle(dot.x, dot.y, 15, dot.color).setInteractive();
+                dot.sprite.on('pointerdown', () => startLine(dot));
+                dot.sprite.on('pointerup', () => endLine(dot));
+            });
+
+            // Update UI
+            levelText.textContent = level;
+            scoreText.textContent = score;
+        }
+
+        function startLine(dot) {
+            if (!selectedDot) {
+                selectedDot = dot;
+                currentLine = { start: dot, end: null, color: dot.color };
+            }
+        }
+
+        function updateLine(pointer) {
+            if (currentLine) {
+                graphics.clear();
+                redrawGrid();
+                redrawDots();
+                redrawLines();
+
+                graphics.lineStyle(5, currentLine.color);
+                graphics.beginPath();
+                graphics.moveTo(currentLine.start.x, currentLine.start.y);
+                graphics.lineTo(pointer.x, pointer.y);
+                graphics.strokePath();
+            }
+        }
+
+        function endLine(dot) {
+            if (selectedDot && dot !== selectedDot && dot.id === selectedDot.id) {
+                let overlap = false;
+                for (let line of lines) {
+                    if (checkIntersection(
+                        selectedDot.x, selectedDot.y, dot.x, dot.y,
+                        line.start.x, line.start.y, line.end.x, line.end.y
+                    )) {
+                        overlap = true;
+                        break;
+                    }
+                }
+
+                if (!overlap) {
+                    currentLine.end = dot;
+                    lines.push(currentLine);
+                    graphics.lineStyle(5, currentLine.color);
+                    graphics.beginPath();
+                    graphics.moveTo(currentLine.start.x, currentLine.start.y);
+                    graphics.lineTo(currentLine.end.x, currentLine.end.y);
+                    graphics.strokePath();
+
+                    score += 10;
+                    scoreText.textContent = score;
+
+                    if (lines.length === pairsToConnect) {
+                        level++;
+                        if (level > totalLevels) {
+                            alert(`Congratulations! You completed all ${totalLevels} levels with a score of ${score}! Share your achievement!`);
+                            level = 1;
+                            score = 0;
+                        }
+                        setTimeout(setupLevel, 1000);
+                    }
+                } else {
+                    alert('Lines cannot overlap! Try again.');
+                }
+            }
+            selectedDot = null;
+            currentLine = null;
+        }
+
+        function redrawGrid() {
+            const gridSize = 4;
+            const cellSize = 100;
+            const offsetX = 0;
+            const offsetY = 0;
+
+            graphics.lineStyle(2, 0xcccccc);
+            for (let i = 0; i <= gridSize; i++) {
+                graphics.moveTo(offsetX + i * cellSize, offsetY);
+                graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
+                graphics.moveTo(offsetX, offsetY + i * cellSize);
+                graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
+            }
+            graphics.strokePath();
+        }
+
+        function redrawDots() {
+            dots.forEach(dot => {
+                graphics.fillStyle(dot.color, 1);
+                graphics.fillCircle(dot.x, dot.y, 15);
+            });
+        }
+
+        function redrawLines() {
+            lines.forEach(line => {
+                graphics.lineStyle(5, line.color);
+                graphics.beginPath();
+                graphics.moveTo(line.start.x, line.start.y);
+                graphics.lineTo(line.end.x, line.end.y);
+                graphics.strokePath();
+            });
+        }
+
+        function checkIntersection(x1, y1, x2, y2, x3, y3, x4, y4) {
+            const denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+            if (denom === 0) return false;
+
+            const t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denom;
+            const u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / denom;
+
+            return t > 0 && t < 1 && u > 0 && u < 1;
+        }
+
+        function update() {
+            // Update share link with score
+            shareBtn.href = `https://x.com/share?text=I%20scored%20${score}%20in%20Dot%20Connect%20Saga!%20Play%20now!%20%23DotConnectSaga`;
+        }
+
         // Show popup after 5 seconds
         setTimeout(() => {
             document.getElementById('popup').style.display = 'block';
