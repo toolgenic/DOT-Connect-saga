@@ -7,14 +7,6 @@
     <meta name="keywords" content="low MB puzzle game, hyper-casual game 2026, Dot Connect Saga, free Android puzzle, connect dots game, mobile puzzle game, casual puzzle game, AI puzzle game, daily challenge puzzle, lightweight Android game, best low MB puzzle game 2026, free dot connect game Android, hyper-casual puzzle game India, addictive connect dots game, AI-generated puzzle game, casual game for low-end devices, Dot Connect Saga download">
     <title>Dot Connect Saga - Play Now!</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
     <style>
         /* Reset */
         * {
@@ -28,10 +20,11 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Header */
@@ -39,19 +32,18 @@
             background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45aaf2);
             color: white;
             text-align: center;
-            padding: 2rem 1rem;
-            animation: fadeIn 1s ease-in;
+            padding: 1rem;
+            width: 100%;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            margin-bottom: 0.5rem;
         }
 
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-style: italic;
             opacity: 0.9;
         }
@@ -59,18 +51,18 @@
         /* Game Section */
         #game {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1rem;
             background: #f0f4f8;
             border-radius: 15px;
-            margin: 1rem auto;
+            margin: 1rem;
             max-width: 450px;
-            flex-grow: 1;
+            width: 100%;
         }
 
         #gameCanvas {
-            width: 400px;
-            height: 400px;
-            max-width: 90%;
+            width: 360px;
+            height: 360px;
+            max-width: 100%;
             border: 3px solid #4ecdc4;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -79,16 +71,16 @@
         }
 
         .game-info {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #444;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
         }
 
         .game-instructions {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #444;
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Buttons */
@@ -96,32 +88,31 @@
             display: inline-block;
             background: #4ecdc4;
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.5rem 1rem;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 20px;
             font-weight: 500;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            transition: background 0.3s, transform 0.3s;
             margin: 0.5rem;
         }
 
         .btn:hover {
             background: #3da8a0;
             transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Social Links */
         .social-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
-            margin: 1rem 0;
+            margin: 0.5rem 0;
         }
 
         .social-links a {
             color: #ff6b6b;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: color 0.3s;
         }
 
@@ -129,86 +120,24 @@
             color: #e55a5a;
         }
 
-        /* Popup */
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            z-index: 1000;
-            max-width: 90%;
-            animation: popUp 0.5s ease-in-out;
-        }
-
-        .popup p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #444;
-        }
-
-        .popup form {
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .popup input {
-            padding: 0.8rem;
-            border: 2px solid #ccc;
-            border-radius: 12px;
-            font-size: 1rem;
-        }
-
-        .close-btn {
-            background: #ff6b6b;
-            border: none;
-            padding: 0.7rem 1.5rem;
-            color: white;
-            cursor: pointer;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
-
-        .close-btn:hover {
-            background: #e55a5a;
-        }
-
         /* Footer */
         footer {
             text-align: center;
-            padding: 1.5rem;
+            padding: 1rem;
             background: #2d3436;
             color: white;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes popUp {
-            from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            font-size: 0.8rem;
+            width: 100%;
         }
 
         /* Responsive Design */
-        @media (max-width: 600px) {
+        @media (max-width: 400px) {
             header h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
 
             .tagline {
-                font-size: 1rem;
+                font-size: 0.8rem;
             }
 
             #gameCanvas {
@@ -216,13 +145,13 @@
                 height: 300px;
             }
 
-            .game-info {
-                font-size: 1rem;
+            .game-info, .game-instructions {
+                font-size: 0.8rem;
             }
 
             .btn {
-                padding: 0.7rem 1.3rem;
-                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -251,16 +180,6 @@
         <a href="mailto:support@dotconnectsaga.com">support@dotconnectsaga.com</a>
     </div>
 
-    <!-- Mailchimp Popup -->
-    <div id="popup" class="popup">
-        <p>Join our mailing list for Dot Connect Saga updates!</p>
-        <form action="https://your-mailchimp-form-url" method="POST">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <button type="submit" class="btn">Subscribe</button>
-        </form>
-        <button onclick="closePopup()" class="close-btn">Close</button>
-    </div>
-
     <!-- Footer -->
     <footer>
         <p>© 2025 Dot Connect Saga. All rights reserved.</p>
@@ -269,248 +188,234 @@
     <!-- Phaser and Game Logic -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <script>
-        // Game Configuration
-        const config = {
-            type: Phaser.AUTO,
-            parent: 'game',
-            width: 400,
-            height: 400,
-            scale: {
-                mode: Phaser.Scale.FIT,
-                autoCenter: Phaser.Scale.CENTER_BOTH
-            },
-            scene: {
-                preload: preload,
-                create: create,
-                update: update
-            },
-            canvas: document.getElementById('gameCanvas')
-        };
+        document.addEventListener('DOMContentLoaded', () => {
+            // Game Configuration
+            const canvasWidth = window.innerWidth <= 400 ? 300 : 360;
+            const config = {
+                type: Phaser.AUTO,
+                parent: 'game',
+                width: canvasWidth,
+                height: canvasWidth,
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    autoCenter: Phaser.Scale.CENTER_BOTH
+                },
+                scene: {
+                    preload: preload,
+                    create: create,
+                    update: update
+                },
+                canvas: document.getElementById('gameCanvas')
+            };
 
-        const game = new Phaser.Game(config);
+            const game = new Phaser.Game(config);
 
-        let dots = [];
-        let lines = [];
-        let currentLine = null;
-        let selectedDot = null;
-        let graphics;
-        let level = 1;
-        let score = 0;
-        let totalLevels = 3;
-        let pairsToConnect = 3; // 3 pairs of dots per level
-        let gridSize = 4;
-        let cellSize = 100;
+            let dots = [];
+            let lines = [];
+            let currentLine = null;
+            let selectedDot = null;
+            let graphics;
+            let level = 1;
+            let score = 0;
+            let totalLevels = 3;
+            let pairsToConnect = 3;
+            let gridSize = 4;
+            let cellSize = canvasWidth / gridSize;
 
-        const levelText = document.getElementById('level');
-        const scoreText = document.getElementById('score');
-        const shareBtn = document.getElementById('shareBtn');
+            const levelText = document.getElementById('level');
+            const scoreText = document.getElementById('score');
+            const shareBtn = document.getElementById('shareBtn');
 
-        function preload() {
-            // No external assets needed
-        }
-
-        function create() {
-            graphics = this.add.graphics();
-            setupLevel();
-
-            // Handle mouse/touch input
-            this.input.on('pointerdown', pointer => {
-                let dot = getDotAt(pointer.x, pointer.y);
-                if (dot) startLine(dot);
-            });
-
-            this.input.on('pointermove', pointer => {
-                if (selectedDot) {
-                    updateLine(pointer);
-                }
-            });
-
-            this.input.on('pointerup', pointer => {
-                let dot = getDotAt(pointer.x, pointer.y);
-                if (dot) endLine(dot);
-            });
-        }
-
-        function setupLevel() {
-            dots = [];
-            lines = [];
-            currentLine = null;
-            selectedDot = null;
-            graphics.clear();
-
-            // Adjust cell size based on canvas size
-            cellSize = config.width / gridSize;
-
-            // Draw 4x4 grid
-            const offsetX = (config.width - gridSize * cellSize) / 2;
-            const offsetY = (config.height - gridSize * cellSize) / 2;
-
-            graphics.lineStyle(2, 0xcccccc);
-            for (let i = 0; i <= gridSize; i++) {
-                graphics.moveTo(offsetX + i * cellSize, offsetY);
-                graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
-                graphics.moveTo(offsetX, offsetY + i * cellSize);
-                graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
-            }
-            graphics.strokePath();
-
-            // Generate dot positions (3 pairs, different colors)
-            const colors = [0xff0000, 0x0000ff, 0x00ff00]; // Red, Blue, Green
-            let positions = [];
-            while (positions.length < pairsToConnect * 2) {
-                let x = offsetX + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
-                let y = offsetY + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
-                if (!positions.some(pos => pos.x === x && pos.y === y)) {
-                    positions.push({ x, y });
-                }
+            function preload() {
+                // No assets needed
             }
 
-            for (let i = 0; i < pairsToConnect; i++) {
-                let color = colors[i];
-                let pos1 = positions[i * 2];
-                let pos2 = positions[i * 2 + 1];
-                dots.push({ x: pos1.x, y: pos1.y, color, id: i + 1 });
-                dots.push({ x: pos2.x, y: pos2.y, color, id: i + 1 });
+            function create() {
+                graphics = this.add.graphics();
+                setupLevel();
+
+                // Input handling
+                this.input.on('pointerdown', pointer => {
+                    let dot = getDotAt(pointer.x, pointer.y);
+                    if (dot) startLine(dot);
+                });
+
+                this.input.on('pointermove', pointer => {
+                    if (selectedDot) updateLine(pointer);
+                });
+
+                this.input.on('pointerup', pointer => {
+                    let dot = getDotAt(pointer.x, pointer.y);
+                    if (dot) endLine(dot);
+                });
             }
 
-            // Draw dots
-            dots.forEach(dot => {
-                graphics.fillStyle(dot.color, 1);
-                graphics.fillCircle(dot.x, dot.y, 15);
-                dot.sprite = this.add.circle(dot.x, dot.y, 15, dot.color).setInteractive();
-            });
-
-            // Update UI
-            levelText.textContent = level;
-            scoreText.textContent = score;
-        }
-
-        function getDotAt(x, y) {
-            return dots.find(dot => {
-                let dx = dot.x - x;
-                let dy = dot.y - y;
-                return Math.sqrt(dx * dx + dy * dy) < 20;
-            });
-        }
-
-        function startLine(dot) {
-            if (!selectedDot) {
-                selectedDot = dot;
-                currentLine = { start: dot, end: null, color: dot.color };
-            }
-        }
-
-        function updateLine(pointer) {
-            if (currentLine) {
+            function setupLevel() {
+                dots = [];
+                lines = [];
+                currentLine = null;
+                selectedDot = null;
                 graphics.clear();
-                redrawGrid();
-                redrawDots();
-                redrawLines();
 
-                graphics.lineStyle(5, currentLine.color);
-                graphics.beginPath();
-                graphics.moveTo(currentLine.start.x, currentLine.start.y);
-                graphics.lineTo(pointer.x, pointer.y);
+                const offsetX = 0;
+                const offsetY = 0;
+
+                // Draw grid
+                graphics.lineStyle(2, 0xcccccc);
+                for (let i = 0; i <= gridSize; i++) {
+                    graphics.moveTo(offsetX + i * cellSize, offsetY);
+                    graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
+                    graphics.moveTo(offsetX, offsetY + i * cellSize);
+                    graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
+                }
                 graphics.strokePath();
-            }
-        }
 
-        function endLine(dot) {
-            if (selectedDot && dot !== selectedDot && dot.id === selectedDot.id) {
-                let overlap = false;
-                for (let line of lines) {
-                    if (checkIntersection(
-                        selectedDot.x, selectedDot.y, dot.x, dot.y,
-                        line.start.x, line.start.y, line.end.x, line.end.y
-                    )) {
-                        overlap = true;
-                        break;
+                // Place dots
+                const colors = [0xff0000, 0x0000ff, 0x00ff00];
+                let positions = [];
+                while (positions.length < pairsToConnect * 2) {
+                    let x = offsetX + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
+                    let y = offsetY + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
+                    if (!positions.some(pos => pos.x === x && pos.y === y)) {
+                        positions.push({ x, y });
                     }
                 }
 
-                if (!overlap) {
-                    currentLine.end = dot;
-                    lines.push(currentLine);
-                    graphics.lineStyle(5, currentLine.color);
+                for (let i = 0; i < pairsToConnect; i++) {
+                    let color = colors[i];
+                    let pos1 = positions[i * 2];
+                    let pos2 = positions[i * 2 + 1];
+                    dots.push({ x: pos1.x, y: pos1.y, color, id: i + 1 });
+                    dots.push({ x: pos2.x, y: pos2.y, color, id: i + 1 });
+                }
+
+                dots.forEach(dot => {
+                    graphics.fillStyle(dot.color, 1);
+                    graphics.fillCircle(dot.x, dot.y, 12);
+                    dot.sprite = this.add.circle(dot.x, dot.y, 12, dot.color).setInteractive();
+                });
+
+                levelText.textContent = level;
+                scoreText.textContent = score;
+            }
+
+            function getDotAt(x, y) {
+                return dots.find(dot => {
+                    let dx = dot.x - x;
+                    let dy = dot.y - y;
+                    return Math.sqrt(dx * dx + dy * dy) < 15;
+                });
+            }
+
+            function startLine(dot) {
+                if (!selectedDot) {
+                    selectedDot = dot;
+                    currentLine = { start: dot, end: null, color: dot.color };
+                }
+            }
+
+            function updateLine(pointer) {
+                if (currentLine) {
+                    graphics.clear();
+                    redrawGrid();
+                    redrawDots();
+                    redrawLines();
+
+                    graphics.lineStyle(4, currentLine.color);
                     graphics.beginPath();
                     graphics.moveTo(currentLine.start.x, currentLine.start.y);
-                    graphics.lineTo(currentLine.end.x, currentLine.end.y);
+                    graphics.lineTo(pointer.x, pointer.y);
                     graphics.strokePath();
-
-                    score += 10;
-                    scoreText.textContent = score;
-
-                    if (lines.length === pairsToConnect) {
-                        level++;
-                        if (level > totalLevels) {
-                            alert(`Congratulations! You completed all ${totalLevels} levels with a score of ${score}! Share your achievement!`);
-                            level = 1;
-                            score = 0;
-                        }
-                        setTimeout(setupLevel, 1000);
-                    }
-                } else {
-                    alert('Lines cannot overlap! Try again.');
                 }
             }
-            selectedDot = null;
-            currentLine = null;
-        }
 
-        function redrawGrid() {
-            const offsetX = (config.width - gridSize * cellSize) / 2;
-            const offsetY = (config.height - gridSize * cellSize) / 2;
+            function endLine(dot) {
+                if (selectedDot && dot !== selectedDot && dot.id === selectedDot.id) {
+                    let overlap = false;
+                    for (let line of lines) {
+                        if (checkIntersection(
+                            selectedDot.x, selectedDot.y, dot.x, dot.y,
+                            line.start.x, line.start.y, line.end.x, line.end.y
+                        )) {
+                            overlap = true;
+                            break;
+                        }
+                    }
 
-            graphics.lineStyle(2, 0xcccccc);
-            for (let i = 0; i <= gridSize; i++) {
-                graphics.moveTo(offsetX + i * cellSize, offsetY);
-                graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
-                graphics.moveTo(offsetX, offsetY + i * cellSize);
-                graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
+                    if (!overlap) {
+                        currentLine.end = dot;
+                        lines.push(currentLine);
+                        graphics.lineStyle(4, currentLine.color);
+                        graphics.beginPath();
+                        graphics.moveTo(currentLine.start.x, currentLine.start.y);
+                        graphics.lineTo(currentLine.end.x, currentLine.end.y);
+                        graphics.strokePath();
+
+                        score += 10;
+                        scoreText.textContent = score;
+
+                        if (lines.length === pairsToConnect) {
+                            level++;
+                            if (level > totalLevels) {
+                                alert(`Congratulations! You completed all ${totalLevels} levels with a score of ${score}! Share your achievement!`);
+                                level = 1;
+                                score = 0;
+                            }
+                            setTimeout(setupLevel, 1000);
+                        }
+                    } else {
+                        alert('Lines cannot overlap! Try again.');
+                    }
+                }
+                selectedDot = null;
+                currentLine = null;
             }
-            graphics.strokePath();
-        }
 
-        function redrawDots() {
-            dots.forEach(dot => {
-                graphics.fillStyle(dot.color, 1);
-                graphics.fillCircle(dot.x, dot.y, 15);
-            });
-        }
+            function redrawGrid() {
+                const offsetX = 0;
+                const offsetY = 0;
 
-        function redrawLines() {
-            lines.forEach(line => {
-                graphics.lineStyle(5, line.color);
-                graphics.beginPath();
-                graphics.moveTo(line.start.x, line.start.y);
-                graphics.lineTo(line.end.x, line.end.y);
+                graphics.lineStyle(2, 0xcccccc);
+                for (let i = 0; i <= gridSize; i++) {
+                    graphics.moveTo(offsetX + i * cellSize, offsetY);
+                    graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
+                    graphics.moveTo(offsetX, offsetY + i * cellSize);
+                    graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
+                }
                 graphics.strokePath();
-            });
-        }
+            }
 
-        function checkIntersection(x1, y1, x2, y2, x3, y3, x4, y4) {
-            const denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
-            if (denom === 0) return false;
+            function redrawDots() {
+                dots.forEach(dot => {
+                    graphics.fillStyle(dot.color, 1);
+                    graphics.fillCircle(dot.x, dot.y, 12);
+                });
+            }
 
-            const t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denom;
-            const u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / denom;
+            function redrawLines() {
+                lines.forEach(line => {
+                    graphics.lineStyle(4, line.color);
+                    graphics.beginPath();
+                    graphics.moveTo(line.start.x, line.start.y);
+                    graphics.lineTo(line.end.x, line.end.y);
+                    graphics.strokePath();
+                });
+            }
 
-            return t > 0 && t < 1 && u > 0 && u < 1;
-        }
+            function checkIntersection(x1, y1, x2, y2, x3, y3, x4, y4) {
+                const denom = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+                if (denom === 0) return false;
 
-        function update() {
-            shareBtn.href = `https://x.com/share?text=I%20scored%20${score}%20in%20Dot%20Connect%20Saga!%20Play%20now!%20%23DotConnectSaga`;
-        }
+                const t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / denom;
+                const u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / denom;
 
-        // Show popup after 5 seconds
-        setTimeout(() => {
-            document.getElementById('popup').style.display = 'block';
-        }, 5000);
+                return t > 0 && t < 1 && u > 0 && u < 1;
+            }
 
-        // Close popup
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
+            function update() {
+                shareBtn.href = `https://x.com/share?text=I%20scored%20${score}%20in%20Dot%20Connect%20Saga!%20Play%20now!%20%23DotConnectSaga`;
+            }
+        });
     </script>
 </body>
 </html>
