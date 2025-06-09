@@ -28,8 +28,10 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
-            scroll-behavior: smooth;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Header */
@@ -61,15 +63,19 @@
             background: #f0f4f8;
             border-radius: 15px;
             margin: 1rem auto;
-            max-width: 500px;
+            max-width: 450px;
+            flex-grow: 1;
         }
 
         #gameCanvas {
-            max-width: 100%;
-            height: auto;
+            width: 400px;
+            height: 400px;
+            max-width: 90%;
             border: 3px solid #4ecdc4;
             border-radius: 10px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            display: block;
+            margin: 0 auto;
         }
 
         .game-info {
@@ -205,6 +211,11 @@
                 font-size: 1rem;
             }
 
+            #gameCanvas {
+                width: 300px;
+                height: 300px;
+            }
+
             .game-info {
                 font-size: 1rem;
             }
@@ -264,6 +275,10 @@
             parent: 'game',
             width: 400,
             height: 400,
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH
+            },
             scene: {
                 preload: preload,
                 create: create,
@@ -283,6 +298,8 @@
         let score = 0;
         let totalLevels = 3;
         let pairsToConnect = 3; // 3 pairs of dots per level
+        let gridSize = 4;
+        let cellSize = 100;
 
         const levelText = document.getElementById('level');
         const scoreText = document.getElementById('score');
@@ -297,10 +314,20 @@
             setupLevel();
 
             // Handle mouse/touch input
+            this.input.on('pointerdown', pointer => {
+                let dot = getDotAt(pointer.x, pointer.y);
+                if (dot) startLine(dot);
+            });
+
             this.input.on('pointermove', pointer => {
                 if (selectedDot) {
                     updateLine(pointer);
                 }
+            });
+
+            this.input.on('pointerup', pointer => {
+                let dot = getDotAt(pointer.x, pointer.y);
+                if (dot) endLine(dot);
             });
         }
 
@@ -311,11 +338,12 @@
             selectedDot = null;
             graphics.clear();
 
+            // Adjust cell size based on canvas size
+            cellSize = config.width / gridSize;
+
             // Draw 4x4 grid
-            const gridSize = 4;
-            const cellSize = 100;
-            const offsetX = 0;
-            const offsetY = 0;
+            const offsetX = (config.width - gridSize * cellSize) / 2;
+            const offsetY = (config.height - gridSize * cellSize) / 2;
 
             graphics.lineStyle(2, 0xcccccc);
             for (let i = 0; i <= gridSize; i++) {
@@ -350,13 +378,19 @@
                 graphics.fillStyle(dot.color, 1);
                 graphics.fillCircle(dot.x, dot.y, 15);
                 dot.sprite = this.add.circle(dot.x, dot.y, 15, dot.color).setInteractive();
-                dot.sprite.on('pointerdown', () => startLine(dot));
-                dot.sprite.on('pointerup', () => endLine(dot));
             });
 
             // Update UI
             levelText.textContent = level;
             scoreText.textContent = score;
+        }
+
+        function getDotAt(x, y) {
+            return dots.find(dot => {
+                let dx = dot.x - x;
+                let dy = dot.y - y;
+                return Math.sqrt(dx * dx + dy * dy) < 20;
+            });
         }
 
         function startLine(dot) {
@@ -424,10 +458,8 @@
         }
 
         function redrawGrid() {
-            const gridSize = 4;
-            const cellSize = 100;
-            const offsetX = 0;
-            const offsetY = 0;
+            const offsetX = (config.width - gridSize * cellSize) / 2;
+            const offsetY = (config.height - gridSize * cellSize) / 2;
 
             graphics.lineStyle(2, 0xcccccc);
             for (let i = 0; i <= gridSize; i++) {
@@ -467,7 +499,6 @@
         }
 
         function update() {
-            // Update share link with score
             shareBtn.href = `https://x.com/share?text=I%20scored%20${score}%20in%20Dot%20Connect%20Saga!%20Play%20now!%20%23DotConnectSaga`;
         }
 
