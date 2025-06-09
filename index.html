@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Play Dot Connect Saga, a free, low MB puzzle game! Connect colorful dots on a grid without overlapping lines. Enjoy challenging levels, track your score, and share your progress! #DotConnectSaga">
-    <meta name="keywords" content="low MB puzzle game, hyper-casual game 2026, Dot Connect Saga, free Android puzzle, connect dots game, mobile puzzle game, casual puzzle game, AI puzzle game, daily challenge puzzle, lightweight Android game, best low MB puzzle game 2026, free dot connect game Android, hyper-casual puzzle game India, addictive connect dots game, AI-generated puzzle game, casual game for low-end devices, Dot Connect Saga download">
+    <meta name="description" content="Play Dot Connect Saga, a free puzzle game! Connect colorful dots on a grid without overlapping lines. Enjoy challenging levels and share your score! #DotConnectSaga">
+    <meta name="keywords" content="low MB puzzle game, Dot Connect Saga, connect dots game, mobile puzzle game, casual puzzle game, free dot connect game">
     <title>Dot Connect Saga - Play Now!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -16,20 +15,18 @@
         }
 
         body {
-            font-family: 'Poppins', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
             background-color: #f9f9f9;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
+            color: #333;
         }
 
-        /* Header */
         header {
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45aaf2);
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
             color: white;
             text-align: center;
             padding: 1rem;
@@ -37,53 +34,42 @@
         }
 
         header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            font-size: 1.8rem;
+            font-weight: 600;
         }
 
-        .tagline {
-            font-size: 1rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        /* Game Section */
         #game {
             text-align: center;
             padding: 1rem;
             background: #f0f4f8;
-            border-radius: 15px;
+            border-radius: 10px;
             margin: 1rem;
-            max-width: 450px;
-            width: 100%;
+            max-width: 400px;
+            width: 90%;
         }
 
         #gameCanvas {
-            width: 360px;
-            height: 360px;
+            width: 320px;
+            height: 320px;
             max-width: 100%;
-            border: 3px solid #4ecdc4;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border: 2px solid #4ecdc4;
+            border-radius: 8px;
             display: block;
             margin: 0 auto;
         }
 
         .game-info {
-            font-size: 1rem;
-            color: #444;
+            font-size: 0.9rem;
             margin: 0.5rem 0;
         }
 
         .game-instructions {
-            font-size: 0.9rem;
-            color: #444;
+            font-size: 0.8rem;
+            color: #555;
             font-style: italic;
             margin-bottom: 0.5rem;
         }
 
-        /* Buttons */
         .btn {
             display: inline-block;
             background: #4ecdc4;
@@ -92,16 +78,13 @@
             text-decoration: none;
             border-radius: 20px;
             font-weight: 500;
-            transition: background 0.3s, transform 0.3s;
             margin: 0.5rem;
         }
 
         .btn:hover {
             background: #3da8a0;
-            transform: scale(1.1);
         }
 
-        /* Social Links */
         .social-links {
             display: flex;
             gap: 1rem;
@@ -112,15 +95,9 @@
         .social-links a {
             color: #ff6b6b;
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
-        .social-links a:hover {
-            color: #e55a5a;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
             padding: 1rem;
@@ -130,19 +107,14 @@
             width: 100%;
         }
 
-        /* Responsive Design */
         @media (max-width: 400px) {
             header h1 {
                 font-size: 1.5rem;
             }
 
-            .tagline {
-                font-size: 0.8rem;
-            }
-
             #gameCanvas {
-                width: 300px;
-                height: 300px;
+                width: 280px;
+                height: 280px;
             }
 
             .game-info, .game-instructions {
@@ -157,40 +129,35 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <h1>Dot Connect Saga</h1>
-        <p class="tagline">Connect the Dots, Solve the Puzzle!</p>
     </header>
 
-    <!-- Game Section -->
     <section id="game">
         <canvas id="gameCanvas"></canvas>
         <p class="game-info">Level: <span id="level">1</span> | Score: <span id="score">0</span></p>
-        <p class="game-instructions">Click and drag to connect matching colored dots without overlapping lines!</p>
+        <p class="game-instructions">Click and drag to connect matching dots without overlapping!</p>
         <div>
             <a href="https://x.com/share?text=I%20scored%20in%20Dot%20Connect%20Saga!%20Play%20now!%20%23DotConnectSaga" target="_blank" class="btn" id="shareBtn">Share on X</a>
         </div>
     </section>
 
-    <!-- Social Links -->
     <div class="social-links">
         <a href="https://x.com" target="_blank">X</a>
         <a href="https://instagram.com" target="_blank">Instagram</a>
         <a href="mailto:support@dotconnectsaga.com">support@dotconnectsaga.com</a>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 Dot Connect Saga. All rights reserved.</p>
     </footer>
 
-    <!-- Phaser and Game Logic -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Game Configuration
-            const canvasWidth = window.innerWidth <= 400 ? 300 : 360;
+        window.onload = () => {
+            alert("Game is loading..."); // Debug alert
+
+            const canvasWidth = window.innerWidth <= 400 ? 280 : 320;
             const config = {
                 type: Phaser.AUTO,
                 parent: 'game',
@@ -218,7 +185,7 @@
             let level = 1;
             let score = 0;
             let totalLevels = 3;
-            let pairsToConnect = 3;
+            let pairsToConnect = 2; // Reduced for simplicity
             let gridSize = 4;
             let cellSize = canvasWidth / gridSize;
 
@@ -227,17 +194,20 @@
             const shareBtn = document.getElementById('shareBtn');
 
             function preload() {
-                // No assets needed
+                alert("Preload stage reached."); // Debug alert
             }
 
             function create() {
+                alert("Create stage reached. Drawing grid and dots..."); // Debug alert
                 graphics = this.add.graphics();
                 setupLevel();
 
-                // Input handling
                 this.input.on('pointerdown', pointer => {
                     let dot = getDotAt(pointer.x, pointer.y);
-                    if (dot) startLine(dot);
+                    if (dot) {
+                        alert("Dot clicked: " + dot.id); // Debug alert
+                        startLine(dot);
+                    }
                 });
 
                 this.input.on('pointermove', pointer => {
@@ -257,25 +227,22 @@
                 selectedDot = null;
                 graphics.clear();
 
-                const offsetX = 0;
-                const offsetY = 0;
-
                 // Draw grid
                 graphics.lineStyle(2, 0xcccccc);
                 for (let i = 0; i <= gridSize; i++) {
-                    graphics.moveTo(offsetX + i * cellSize, offsetY);
-                    graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
-                    graphics.moveTo(offsetX, offsetY + i * cellSize);
-                    graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
+                    graphics.moveTo(i * cellSize, 0);
+                    graphics.lineTo(i * cellSize, gridSize * cellSize);
+                    graphics.moveTo(0, i * cellSize);
+                    graphics.lineTo(gridSize * cellSize, i * cellSize);
                 }
                 graphics.strokePath();
 
-                // Place dots
-                const colors = [0xff0000, 0x0000ff, 0x00ff00];
+                // Place dots (2 pairs)
+                const colors = [0xff0000, 0x0000ff];
                 let positions = [];
                 while (positions.length < pairsToConnect * 2) {
-                    let x = offsetX + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
-                    let y = offsetY + cellSize * (0.5 + Math.floor(Math.random() * gridSize));
+                    let x = cellSize * (0.5 + Math.floor(Math.random() * gridSize));
+                    let y = cellSize * (0.5 + Math.floor(Math.random() * gridSize));
                     if (!positions.some(pos => pos.x === x && pos.y === y)) {
                         positions.push({ x, y });
                     }
@@ -291,8 +258,8 @@
 
                 dots.forEach(dot => {
                     graphics.fillStyle(dot.color, 1);
-                    graphics.fillCircle(dot.x, dot.y, 12);
-                    dot.sprite = this.add.circle(dot.x, dot.y, 12, dot.color).setInteractive();
+                    graphics.fillCircle(dot.x, dot.y, 10);
+                    dot.sprite = this.add.circle(dot.x, dot.y, 10, dot.color).setInteractive();
                 });
 
                 levelText.textContent = level;
@@ -303,7 +270,7 @@
                 return dots.find(dot => {
                     let dx = dot.x - x;
                     let dy = dot.y - y;
-                    return Math.sqrt(dx * dx + dy * dy) < 15;
+                    return Math.sqrt(dx * dx + dy * dy) < 12;
                 });
             }
 
@@ -357,7 +324,7 @@
                         if (lines.length === pairsToConnect) {
                             level++;
                             if (level > totalLevels) {
-                                alert(`Congratulations! You completed all ${totalLevels} levels with a score of ${score}! Share your achievement!`);
+                                alert(`You completed all ${totalLevels} levels with a score of ${score}!`);
                                 level = 1;
                                 score = 0;
                             }
@@ -372,15 +339,12 @@
             }
 
             function redrawGrid() {
-                const offsetX = 0;
-                const offsetY = 0;
-
                 graphics.lineStyle(2, 0xcccccc);
                 for (let i = 0; i <= gridSize; i++) {
-                    graphics.moveTo(offsetX + i * cellSize, offsetY);
-                    graphics.lineTo(offsetX + i * cellSize, offsetY + gridSize * cellSize);
-                    graphics.moveTo(offsetX, offsetY + i * cellSize);
-                    graphics.lineTo(offsetX + gridSize * cellSize, offsetY + i * cellSize);
+                    graphics.moveTo(i * cellSize, 0);
+                    graphics.lineTo(i * cellSize, gridSize * cellSize);
+                    graphics.moveTo(0, i * cellSize);
+                    graphics.lineTo(gridSize * cellSize, i * cellSize);
                 }
                 graphics.strokePath();
             }
@@ -388,7 +352,7 @@
             function redrawDots() {
                 dots.forEach(dot => {
                     graphics.fillStyle(dot.color, 1);
-                    graphics.fillCircle(dot.x, dot.y, 12);
+                    graphics.fillCircle(dot.x, dot.y, 10);
                 });
             }
 
@@ -415,7 +379,7 @@
             function update() {
                 shareBtn.href = `https://x.com/share?text=I%20scored%20${score}%20in%20Dot%20Connect%20Saga!%20Play%20now!%20%23DotConnectSaga`;
             }
-        });
+        };
     </script>
 </body>
 </html>
